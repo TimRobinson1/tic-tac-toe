@@ -20,5 +20,14 @@ describe('Board', function() {
         [0, 0, 0]
       ]);
     })
+
+    it('can have a grid section selected', function() {
+      board.chooseSquare(0, 2)
+      expect(board.grid).deep.equal([
+        [0, 0, 1],
+        [0, 0, 0],
+        [0, 0, 0]
+      ]);
+    })
   })
 })
