@@ -12,5 +12,13 @@ describe('Board', function() {
     it('starts with correct grid size', function() {
       expect(board.gridSize).equal(9);
     })
+
+    it('starts with an empty grid', function() {
+      expect(board.grid).deep.equal([
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+      ]);
+    })
   })
 })
