@@ -54,6 +54,11 @@ describe('Board', function() {
         [1, 0, 0]
       ]);
     })
+
+    it('triggers a player marker change', function() {
+      board.chooseSquare(0, 2)
+      expect(board.playerMarker).equal('O')
+    })
   })
 
   describe('#changePlayer', function() {

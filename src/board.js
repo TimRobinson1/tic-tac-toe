@@ -10,6 +10,7 @@ function Board() {
 
 Board.prototype.chooseSquare = function(row, square) {
   this.grid[row][square] = 1;
+  this.changePlayer();
 }
 
 Board.prototype.changePlayer = function() {
