@@ -9,10 +9,6 @@ describe('Board', function() {
   })
 
   describe('Initialisation', function(){
-    it('starts with correct grid size', function() {
-      expect(board.gridSize).equal(9);
-    })
-
     it('X is the first player by default', function() {
       expect(board.playerMarker).equal('X');
     })

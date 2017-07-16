@@ -1,11 +1,11 @@
 function Board() {
-  this.gridSize = 9;
   this.grid = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0]
-  ]
+  ];
   this.playerMarker = 'X';
+  this.
 }
 
 Board.prototype.chooseSquare = function(row, square) {
