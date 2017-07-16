@@ -9,7 +9,7 @@ function Board() {
 }
 
 Board.prototype.chooseSquare = function(row, square) {
-  this.grid[row][square] = 1;
+  this.grid[row][square] = this.playerMarker;
   this.changePlayer();
 }
 

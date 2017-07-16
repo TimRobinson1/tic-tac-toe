@@ -30,7 +30,7 @@ describe('Board', function() {
     it('can have a grid section selected', function() {
       board.chooseSquare(0, 2)
       expect(board.grid).deep.equal([
-        [0, 0, 1],
+        [0, 0, 'X'],
         [0, 0, 0],
         [0, 0, 0]
       ]);
@@ -40,7 +40,7 @@ describe('Board', function() {
       board.chooseSquare(1, 1)
       expect(board.grid).deep.equal([
         [0, 0, 0],
-        [0, 1, 0],
+        [0, 'X', 0],
         [0, 0, 0]
       ]);
     })
@@ -50,14 +50,20 @@ describe('Board', function() {
       board.chooseSquare(2, 0)
       expect(board.grid).deep.equal([
         [0, 0, 0],
-        [0, 1, 0],
-        [1, 0, 0]
+        [0, 'X', 0],
+        ['O', 0, 0]
       ]);
     })
 
     it('triggers a player marker change', function() {
       board.chooseSquare(0, 2)
       expect(board.playerMarker).equal('O')
+    })
+
+    it('can trigger a player marker change twice', function() {
+      board.chooseSquare(0, 2)
+      board.chooseSquare(0, 1)
+      expect(board.playerMarker).equal('X')
     })
   })
 
