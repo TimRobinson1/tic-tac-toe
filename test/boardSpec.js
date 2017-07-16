@@ -55,4 +55,11 @@ describe('Board', function() {
       ]);
     })
   })
+
+  describe('#changePlayer', function() {
+    it('changes the current player Marker', function() {
+      board.changePlayer()
+      expect(board.playerMarker).equal('O');
+    })
+  })
 })
