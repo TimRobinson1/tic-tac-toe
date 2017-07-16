@@ -61,5 +61,11 @@ describe('Board', function() {
       board.changePlayer()
       expect(board.playerMarker).equal('O');
     })
+
+    it('changes the current player Marker', function() {
+      board.changePlayer()
+      board.changePlayer()
+      expect(board.playerMarker).equal('X');
+    })
   })
 })
