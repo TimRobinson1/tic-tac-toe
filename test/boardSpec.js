@@ -13,6 +13,10 @@ describe('Board', function() {
       expect(board.gridSize).equal(9);
     })
 
+    it('X is the first player by default', function() {
+      expect(board.playerMarker).equal('X');
+    })
+
     it('starts with an empty grid', function() {
       expect(board.grid).deep.equal([
         [0, 0, 0],
