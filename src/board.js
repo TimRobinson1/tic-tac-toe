@@ -5,7 +5,6 @@ function Board() {
     [0, 0, 0]
   ];
   this.playerMarker = 'X';
-  this.
 }
 
 Board.prototype.chooseSquare = function(row, square) {
