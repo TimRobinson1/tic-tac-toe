@@ -16,4 +16,8 @@ Board.prototype.changePlayer = function() {
   this.playerMarker = this.playerMarker === 'X' ? 'O' : 'X';
 }
 
-module.exports = Board;
+Board.prototype.marker = function() {
+  return this.playerMarker;
+}
+
+// module.exports = Board;
