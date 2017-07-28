@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-var Board = require('../src/board.js');
+var Board = require('../public/src/board.js');
 
 describe('Board', function() {
   var board;

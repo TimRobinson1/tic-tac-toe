@@ -20,4 +20,4 @@ Board.prototype.marker = function() {
   return this.playerMarker;
 }
 
-// module.exports = Board;
+module.exports = Board;
