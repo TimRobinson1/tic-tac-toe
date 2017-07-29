@@ -1,10 +1,11 @@
-function Board() {
+function Board(GridScanner) {
   this.grid = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0]
   ];
   this.playerMarker = 'X';
+  this.gridScanner = new GridScanner();
 }
 
 Board.prototype.chooseSquare = function(row, square) {
@@ -20,4 +21,6 @@ Board.prototype.marker = function() {
   return this.playerMarker;
 }
 
-module.exports = Board;
+if (typeof module !== 'undefined') {
+  module.exports = Board;
+}

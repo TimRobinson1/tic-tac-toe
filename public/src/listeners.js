@@ -1,4 +1,4 @@
-var board = new Board();
+var board = new Board(GridScanner);
 
 document.querySelectorAll('td').forEach( (element) => {
   element.onclick = () => {

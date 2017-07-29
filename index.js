@@ -7,7 +7,7 @@ app.engine('.html', require('ejs').renderFile);
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-  res.render('testfile.html')
+  res.render('index.html')
 })
 
 http.listen(port, function() {
