@@ -1,12 +1,12 @@
 const expect = require('chai').expect;
-var Board = require('../public/src/board.js');
-var fakeGridScanner = function() {}
+var Board = require('../public/scripts/board.js');
+var GridScanner = require('../public/scripts/gridScanner.js');
 
 describe('Board', function() {
   var board;
 
   beforeEach(function() {
-    board = new Board(fakeGridScanner);
+    board = new Board(GridScanner);
   })
 
   describe('Initialisation', function(){
