@@ -1,11 +1,9 @@
-function GridScanner() {
+define(function() {
+  var GridScanner = {};
 
-}
+  GridScanner.checkForWinner = function(grid) {
 
-GridScanner.prototype.checkForWinner = function(grid) {
-  
-}
+  };
 
-if (typeof module !== 'undefined') {
-  module.exports = GridScanner;
-}
+  return GridScanner;
+})

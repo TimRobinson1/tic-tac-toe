@@ -1,4 +1,4 @@
-define(function() {
+define(['gridScanner'], function(gridScanner) {
   var Board = {};
 
   Board.winning = function() {
@@ -10,6 +10,8 @@ define(function() {
       [0, 0, 0],
       [0, 0, 0]
     ];
+
+  Board.gridScanner = gridScanner;
 
   Board.playerMarker = 'X';
 
@@ -25,6 +27,15 @@ define(function() {
 
   Board.marker = function() {
     return this.playerMarker;
+  }
+
+  Board.reset = function() {
+    this.playerMarker = 'X';
+    this.grid = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+      ];
   }
 
   return Board;

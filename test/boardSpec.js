@@ -1,21 +1,25 @@
 const expect = require('chai').expect;
-var Board = require('../public/scripts/board.js');
-var GridScanner = require('../public/scripts/gridScanner.js');
+var requirejs = require('requirejs')
+
+requirejs.config({
+    baseUrl: './public/scripts'
+});
+
+var Board = requirejs('./public/scripts/board.js')
 
 describe('Board', function() {
-  var board;
 
   beforeEach(function() {
-    board = new Board(GridScanner);
+    Board.reset();
   })
 
   describe('Initialisation', function(){
     it('X is the first player by default', function() {
-      expect(board.playerMarker).equal('X');
+      expect(Board.playerMarker).equal('X');
     })
 
     it('starts with an empty grid', function() {
-      expect(board.grid).deep.equal([
+      expect(Board.grid).deep.equal([
         [0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]
@@ -23,10 +27,11 @@ describe('Board', function() {
     })
   })
 
+
   describe('#chooseSquare', function() {
     it('can have a grid section selected', function() {
-      board.chooseSquare(0, 2)
-      expect(board.grid).deep.equal([
+      Board.chooseSquare(0, 2)
+      expect(Board.grid).deep.equal([
         [0, 0, 'X'],
         [0, 0, 0],
         [0, 0, 0]
@@ -34,8 +39,8 @@ describe('Board', function() {
     })
 
     it('can have any grid section selected', function() {
-      board.chooseSquare(1, 1)
-      expect(board.grid).deep.equal([
+      Board.chooseSquare(1, 1)
+      expect(Board.grid).deep.equal([
         [0, 0, 0],
         [0, 'X', 0],
         [0, 0, 0]
@@ -43,9 +48,9 @@ describe('Board', function() {
     })
 
     it('can have multiple grid sections selected', function() {
-      board.chooseSquare(1, 1)
-      board.chooseSquare(2, 0)
-      expect(board.grid).deep.equal([
+      Board.chooseSquare(1, 1)
+      Board.chooseSquare(2, 0)
+      expect(Board.grid).deep.equal([
         [0, 0, 0],
         [0, 'X', 0],
         ['O', 0, 0]
@@ -53,27 +58,27 @@ describe('Board', function() {
     })
 
     it('triggers a player marker change', function() {
-      board.chooseSquare(0, 2)
-      expect(board.playerMarker).equal('O')
+      Board.chooseSquare(0, 2)
+      expect(Board.playerMarker).equal('O')
     })
 
     it('can trigger a player marker change twice', function() {
-      board.chooseSquare(0, 2)
-      board.chooseSquare(0, 1)
-      expect(board.playerMarker).equal('X')
+      Board.chooseSquare(0, 2)
+      Board.chooseSquare(0, 1)
+      expect(Board.playerMarker).equal('X')
     })
   })
 
   describe('#changePlayer', function() {
     it('changes the current player Marker', function() {
-      board.changePlayer()
-      expect(board.playerMarker).equal('O');
+      Board.changePlayer()
+      expect(Board.playerMarker).equal('O');
     })
 
     it('changes the current player Marker', function() {
-      board.changePlayer()
-      board.changePlayer()
-      expect(board.playerMarker).equal('X');
+      Board.changePlayer()
+      Board.changePlayer()
+      expect(Board.playerMarker).equal('X');
     })
   })
 })
