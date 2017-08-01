@@ -5,9 +5,9 @@ requirejs.config({
     baseUrl: './public/scripts'
 });
 
-var Board = requirejs('./public/scripts/board.js')
 
 describe('Board', function() {
+  var Board = requirejs('./public/scripts/board.js')
 
   beforeEach(function() {
     Board.reset();
