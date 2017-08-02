@@ -13,6 +13,7 @@
     "requirejs": "^2.3.4"
   },
   "devDependencies": {
+    "deep-equal": "^1.0.1",
     "mocha": "^3.4.2"
   },
   "scripts": {
