@@ -54,6 +54,22 @@ describe('GridScanner', function() {
           [0, 0, 0]
         ])).equal(true)
       })
+
+      it('does not register incomplete rows as wins', function() {
+        expect(GridScanner.checkForWinner([
+          ['O', 'X', 0],
+          ['O', 'O', 0],
+          [0, 'X', 'X']
+        ])).equal(false)
+      })
+
+      it('does not register mixed rows as wins', function() {
+        expect(GridScanner.checkForWinner([
+          ['O', 'X', 'X'],
+          ['X', 'O', 'X'],
+          ['O', 'X', 'O']
+        ])).equal(false)
+      })
     })
   })
 })
