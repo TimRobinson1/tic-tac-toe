@@ -71,5 +71,47 @@ describe('GridScanner', function() {
         ])).equal(false)
       })
     })
+
+    describe('Columns', function() {
+      it("registers a full column of X's as a win", function() {
+        expect(GridScanner.checkForWinner([
+          ['X', 0, 0],
+          ['X', 0, 0],
+          ['X', 0, 0]
+        ])).equal(true)
+      })
+
+      it("registers a full column of O's as a win", function() {
+        expect(GridScanner.checkForWinner([
+          [0, 'O', 0],
+          [0, 'O', 0],
+          [0, 'O', 0]
+        ])).equal(true)
+      })
+
+      it("registers a full third column as a win", function() {
+        expect(GridScanner.checkForWinner([
+          [0, 0, 'X'],
+          [0, 0, 'X'],
+          [0, 0, 'X']
+        ])).equal(true)
+      })
+
+      it("does not register a mixed column as a win", function() {
+        expect(GridScanner.checkForWinner([
+          [0, 0, 'X'],
+          [0, 0, 'O'],
+          [0, 0, 'X']
+        ])).equal(false)
+      })
+
+      it("does not register incomplete columns as a win", function() {
+        expect(GridScanner.checkForWinner([
+          ['O', 'X', 'X'],
+          ['O', 'O', 0],
+          [0, 0, 'X']
+        ])).equal(false)
+      })
+    })
   })
 })
