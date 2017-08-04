@@ -6,9 +6,11 @@ define(function() {
     return result;
   };
 
+
   GridScanner._scanGrid = function(grid) {
-    return this._scanRows(grid) || this._scanColumns(grid)
+    return this._scanRows(grid) || this._scanColumns(grid) || this._scanDiagonals(grid)
   }
+
 
   GridScanner._scanRows = function(grid) {
     var result = false;
@@ -20,6 +22,7 @@ define(function() {
     return result;
   }
 
+
   GridScanner._scanColumns = function(grid) {
     var transposedGrid = grid[0].map(function(_col, index) {
       return grid.map(function(row) {
@@ -28,6 +31,18 @@ define(function() {
     });
 
     return this._scanRows(transposedGrid)
+  }
+
+
+  GridScanner._scanDiagonals = function(grid) {
+    var result = false
+    var diagonalOne = grid[0][0] + grid[1][1] + grid[2][2];
+    var diagonalTwo = grid[0][2] + grid[1][1] + grid[2][0];
+    if (diagonalOne === 'XXX') {
+      result = true;
+    }
+    
+    return result;
   }
 
   return GridScanner;

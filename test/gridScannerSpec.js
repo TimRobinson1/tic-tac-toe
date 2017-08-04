@@ -113,5 +113,15 @@ describe('GridScanner', function() {
         ])).equal(false)
       })
     })
+
+    describe('Diagonals', function() {
+      it("registers diagonal line of X's as a win", function() {
+        expect(GridScanner.checkForWinner([
+          ['X', 0, 0],
+          [0, 'X', 0],
+          [0, 0, 'X']
+        ])).equal(true)
+      })
+    })
   })
 })
