@@ -65,7 +65,7 @@ describe('GridScanner', function() {
 
       it('does not register mixed rows as wins', function() {
         expect(GridScanner.checkForWinner([
-          ['O', 'X', 'X'],
+          ['X', 'O', 'X'],
           ['X', 'O', 'X'],
           ['O', 'X', 'O']
         ])).equal(false)
@@ -120,6 +120,14 @@ describe('GridScanner', function() {
           ['X', 0, 0],
           [0, 'X', 0],
           [0, 0, 'X']
+        ])).equal(true)
+      })
+
+      it("registers diagonal line of O's as a win", function() {
+        expect(GridScanner.checkForWinner([
+          ['O', 0, 0],
+          [0, 'O', 0],
+          [0, 0, 'O']
         ])).equal(true)
       })
     })
