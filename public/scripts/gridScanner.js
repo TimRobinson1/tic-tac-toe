@@ -38,7 +38,8 @@ define(function() {
     var result = false
     var diagonalOne = grid[0][0] + grid[1][1] + grid[2][2];
     var diagonalTwo = grid[0][2] + grid[1][1] + grid[2][0];
-    if (diagonalOne === 'XXX' || diagonalOne === 'OOO') {
+    var diagonals = [diagonalOne, diagonalTwo];
+    if (diagonals.includes('XXX') || diagonals.includes('OOO')) {
       result = true;
     }
 

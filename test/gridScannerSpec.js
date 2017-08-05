@@ -130,6 +130,30 @@ describe('GridScanner', function() {
           [0, 0, 'O']
         ])).equal(true)
       })
+
+      it("registers reversed diagonal line of X's as a win", function() {
+        expect(GridScanner.checkForWinner([
+          [0, 0, 'X'],
+          [0, 'X', 0],
+          ['X', 0, 0]
+        ])).equal(true)
+      })
+
+      it("registers reversed diagonal line of O's as a win", function() {
+        expect(GridScanner.checkForWinner([
+          [0, 0, 'O'],
+          [0, 'O', 0],
+          ['O', 0, 0]
+        ])).equal(true)
+      })
+
+      it("does not register mixed diagonals as wins", function() {
+        expect(GridScanner.checkForWinner([
+          [0, 0, 'O'],
+          [0, 'X', 0],
+          ['O', 0, 0]
+        ])).equal(false)
+      })
     })
   })
 })
