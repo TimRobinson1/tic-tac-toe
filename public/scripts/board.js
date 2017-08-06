@@ -11,13 +11,12 @@ define(['gridScanner'], function(gridScanner) {
       [0, 0, 0]
     ];
 
+  Board.isEnded = false;
   Board.gridScanner = gridScanner;
-
   Board.playerMarker = 'X';
 
-  Board.chooseSquare = function(row, square) {
-    this.grid[row][square] = this.playerMarker;
-    // this.gridScanner.checkForWinner(this.grid);
+  Board.chooseSquare = function() {
+    this.isEnded = this.gridScanner.checkForWinner(this.grid);
     this.changePlayer();
   };
 

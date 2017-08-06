@@ -8,7 +8,7 @@ require(['board', 'gridScanner'], function(Board) {
     element.onclick = () => {
       if (element.innerHTML === '') {
         element.innerHTML = Board.marker();
-        Board.changePlayer();
+        Board.chooseSquare();
       }
     }
   })
