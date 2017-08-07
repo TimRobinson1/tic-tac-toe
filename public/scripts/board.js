@@ -2,7 +2,7 @@ define(['gridScanner'], function(gridScanner) {
   var Board = {};
 
   Board.winning = function() {
-    console.log('cat');
+
   }
 
   Board.grid = [
@@ -15,7 +15,8 @@ define(['gridScanner'], function(gridScanner) {
   Board.gridScanner = gridScanner;
   Board.playerMarker = 'X';
 
-  Board.chooseSquare = function() {
+  Board.chooseSquare = function(row, column) {
+    this.grid[row][column] = this.playerMarker;
     this.isEnded = this.gridScanner.checkForWinner(this.grid);
     this.changePlayer();
   };
