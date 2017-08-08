@@ -35,15 +35,9 @@ define(function() {
 
 
   GridScanner._scanDiagonals = function(grid) {
-    var result = false
-    var diagonalOne = grid[0][0] + grid[1][1] + grid[2][2];
-    var diagonalTwo = grid[0][2] + grid[1][1] + grid[2][0];
-    var diagonals = [diagonalOne, diagonalTwo];
-    if (diagonals.includes('XXX') || diagonals.includes('OOO')) {
-      result = true;
-    }
-
-    return result;
+    var diagonalOne = [grid[0][0], grid[1][1], grid[2][2]];
+    var diagonalTwo = [grid[0][2], grid[1][1], grid[2][0]];
+    return this._scanRows([diagonalOne, diagonalTwo]);
   }
 
   return GridScanner;
